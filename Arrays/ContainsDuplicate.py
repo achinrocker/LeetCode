@@ -11,16 +11,8 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        if len(nums) == 0:
-            return False
-        sorted_nums = sorted(nums)
-        prev = float('inf')
-        for num in sorted_nums:
-            if prev == float('inf'):
-                prev = num
-            elif prev == num:
+        nums.sort()
+        for i in range(0, len(nums)-1):
+            if nums[i] == nums[i+1]:
                 return True
-            else:
-                prev = num
-
         return False
